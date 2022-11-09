@@ -8,8 +8,21 @@ const btnClose = document.getElementById('btn-close');
 
 area.addEventListener('click', e => {
     if (e.target.className == 'box') {
-        move % 2 === 0 ? e.target.innerHTML = 'X' : e.target.innerHTML = 'O';
-        move++;
+        if (move % 2 === 0) {
+            if (e.target.innerHTML == 'X' || e.target.innerHTML == 'O') {
+                alert('Это поле занято');
+            } else {
+                e.target.innerHTML = 'X';
+                move++;
+            }
+        } else {
+            if (e.target.innerHTML == 'X' || e.target.innerHTML == 'O') {
+                alert('Это поле занято');
+            } else {
+                e.target.innerHTML = 'O';
+                move++;
+            }
+        }
         check();
     }
 });
